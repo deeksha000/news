@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <p>Go to news section : </p>
+  <p><a href="http://127.0.0.1:8000/news/">News section</a></p>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+
+{% else %}
+  <p>You are not logged in</p>
+  <p>
+    Lgogin here:
+  </p>
+  <a href="{% url 'login' %}">Log In</a>
+  <p>
+    Signup here
+  </p>
+  <a href="http://127.0.0.1:8000/signup/">Signup</a>
+{% endif %}
+{% endblock %}
